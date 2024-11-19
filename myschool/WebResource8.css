@@ -1,0 +1,209 @@
+/* RadWindow for ASP.NET AJAX Default Skin */
+
+/* Window Background */
+
+/* Horiznotal */
+.RadWindow_Default .rwTopLeft,
+.RadWindow_Default .rwTopRight,
+.RadWindow_Default .rwTitlebar,
+.RadWindow_Default .rwFooterLeft,
+.RadWindow_Default .rwFooterRight,
+.RadWindow_Default .rwFooterCenter,
+.RadWindow_Default .rwTopResize,
+.RadWindow_Default .rwStatusbar div,
+.RadWindow_Default .rwStatusbar,
+.RadWindow_Default .rwPopupButton,
+.RadWindow_Default .rwPopupButton span,
+.RadWindow_Default.rwMinimizedWindow .rwCorner
+{
+    background-image: url('WebResource.axd?d=c3T1w7MrmM6WWKOMhHXFrlTXrhnlHbIgMD5lf1oxuscvym_8QQbuV5WSKjWQ9e-PSKZgKQPqRMRxh1ykyhb6bWeTtQWmqdolkFQ5ZijwL6jRWKR-HE8uDXTOrltl0QRDs9xbqfakG1E62FJRdvhJ1PZ9PGaB8wX9GWeKoYnaiiq2PRb9S2ujdX988n4T76SR0&t=637031068030000000');
+}
+
+
+/* Vertical */
+.RadWindow_Default .rwBodyLeft,
+.RadWindow_Default .rwBodyRight,
+.RadWindow_Default .rwStatusbarRow .rwCorner
+{
+	background-image: url('WebResource.axd?d=r14eFN2DvNve95OLZghbS8NV0n8fkBAnJj4L2s5ej9p70jLNXNZ3qTFTi5kRECM0iptCQ4-T_ULROeaqEuWooGPn7z2LTyRQcRgNW67t9Xr8aZe99juOR82jB4kcYaLKkP_onkmJulmm2pKi--U8INYDxbe25cyAUrIqQl5El2cK6WDgSzNiLYZM7EHmF_Qt0&t=637031068030000000');
+}
+
+/* Window Shadows */
+
+/* Horiznotal */
+.RadWindow_Default .rwShadow .rwTopLeft,
+.RadWindow_Default .rwShadow .rwTopRight,
+.RadWindow_Default .rwShadow .rwTitlebar,
+.RadWindow_Default .rwShadow .rwFooterLeft,
+.RadWindow_Default .rwShadow .rwFooterRight,
+.RadWindow_Default .rwShadow .rwFooterCenter,
+.RadWindow_Default .rwShadow .rwTopResize,
+.RadWindow_Default .rwShadow .rwStatusbar div,
+.RadWindow_Default .rwShadow .rwStatusbar,
+.RadWindow_Default .rwShadow .rwPopupButton,
+.RadWindow_Default .rwShadow .rwPopupButton span,
+.RadWindow_Default .rwShadow .rwBodyLeft,
+.RadWindow_Default .rwShadow .rwBodyRight,
+.RadWindow_Default .rwShadow .rwStatusbarRow .rwBodyLeft,
+.RadWindow_Default .rwShadow .rwStatusbarRow .rwBodyRight
+{
+	background-image: url('WebResource.axd?d=E_STRvR_Oho78Q39GCw9F6J9hpymq3tJ0tWjW3-Ka__JaSlQNzcuohIrETFTdRyVpE2SaNoHy4UKJ3kr_nLfQc-cdxqmn2u0H2_qyGGWNAT-CFJsmKUa7e2GXDNXRbjhXODAWuyVQjxgHkeDVr_A0EHKw2f6IfnEXNHkccOtvZmjSmach-4AkSYQhDKmsIax0&t=637031068030000000');
+}
+
+/* Vertical */
+.RadWindow_Default .rwShadow .rwBodyLeft,
+.RadWindow_Default .rwShadow .rwBodyRight,
+.RadWindow_Default .rwShadow .rwStatusbarRow .rwBodyLeft,
+.RadWindow_Default .rwShadow .rwStatusbarRow .rwBodyRight
+{
+	background-image: url('WebResource.axd?d=QXajQDGuPoxVSir4_W024OX38-cmH1DI0Sn2SO7ZMeEfpm5BIJGxGyCICzCA0zmoE9vLoRsPP30PZ56o8fPBeIiZbvhtAXTF87rFvTzVmvJF33K5VRHaXOpcNXN2B57KqkJU8f7NhBOLhjbiYrnZZf5UADMkNMqY_LWpdwlD-BanQ71iiq87wPaF_tih_Z110&t=637031068030000000');
+}
+
+/* Shadows End */
+
+.RadWindow_Default .rwStatusbar input
+{
+    background-color: #f7f3e9;
+}
+
+.RadWindow_Default .rwControlButtons a
+{
+    background-image: url('WebResource.axd?d=vPWUxI0gO5Mk3rrj4X6vZ3ATprqUrgC9lxgRhNFIGafUDmwSjqPTBEp4l9Eij2p5Lt6lJEE1XiQjRx9ONuMU1SH4uvftkFulF613iiadlduvVvZ0gWujlepy8zQdGEy57pEAKz5AMBhHJHI5fCU8pTRYqfIl93yaexN47ubgMrpMh_JS5pR-rDjGpKQw9m3A0&t=637031068030000000');
+}
+
+.RadWindow_Default a.rwIcon
+{
+	background-image: url('WebResource.axd?d=c3T1w7MrmM6WWKOMhHXFrlTXrhnlHbIgMD5lf1oxuscvym_8QQbuV5WSKjWQ9e-PSKZgKQPqRMRxh1ykyhb6bWeTtQWmqdolkFQ5ZijwL6jRWKR-HE8uDXTOrltl0QRDs9xbqfakG1E62FJRdvhJ1PZ9PGaB8wX9GWeKoYnaiiq2PRb9S2ujdX988n4T76SR0&t=637031068030000000');
+}
+
+div.RadWindow_Default .rwTitlebarControls em
+{
+	color: black;
+}
+
+div.RadWindow_Default .rwDialogInput
+{
+	border-top: solid 1px #abadb3;
+	border-right: solid 1px #dbdfe6;
+	border-bottom: solid 1px #e3e9ef;
+	border-left: solid 1px #e2e3ea;
+}
+
+div.RadWindow_Default .rwDialogInput:hover
+{
+	border-top: solid 1px #5794bf;
+	border-right: solid 1px #b7d5ea;
+	border-bottom: solid 1px #c7e2f1;
+	border-left: solid 1px #c5daed;
+	color: #565656;
+}
+
+.RadWindow_Default td.rwWindowContent
+{
+    background-color: #fff;
+}
+
+/* Loading Indicators */
+div.RadWindow_Default tr td.rwLoading
+{
+	background-color: #fff;
+}
+
+/* When ShowContentDuringLoad="true" */
+.RadWindow_Default td.rwWindowContent.rwLoading
+{
+    background-image: url('WebResource.axd?d=_mlmkCOVZ18tr_LvqhuT96aISi-YO28SiAXRl6adqt8qc7m9Vq9EjBTApd99H6rplaSF-14O1KWWohD0VhLqFaHq-Ex4zm98nZxm66Ka_9LzgnDEsreb3HDA1tjXQynXUwe4xMYt2Bax1DtqXgTpBmYSHqTbdS3EkGbMd78ZOXE1&t=637031068030000000');
+}
+
+/* When ShowContentDuringLoad="false" */
+.RadWindow_Default input.rwLoading
+{
+    background-image: url('WebResource.axd?d=mJGW_AdS_HhjPJq-9ZgDYEwQyeZWJQ0vpMM9ehJGSKiMmCXDSwQm201q7Vs5ycfwI3_REIUhnN5z428gHm8XHP5BGt4dZWweM3uqy8DYlsdD-58Rgrze1YVy8EAX0LCIlqnanH90K11s5ResPUGPIjTggNNSeduzkJDDtg2RCOE1&t=637031068030000000');
+}
+
+div.RadWindow_Default a.rwCancel,
+div.RadWindow_Default a.rwCancel span
+{
+    background: none;
+    cursor: pointer;
+}
+
+div.RadWindow_Default a.rwCancel span span
+{
+    color: #000000;
+    text-decoration: underline;
+}
+
+/* Shadow Control Buttons */
+
+.RadWindow_Default .rwShadow .rwControlButtons 
+{
+	margin: 5px -2px 0 0;
+}
+
+.RadWindow_Default .rwShadow .rwControlButtons 
+{
+	margin: 5px -1px 0 0\9;
+}
+
+/* ctrl buttons when winodw is minimized */
+.RadWindow_Default.rwMinimizedWindowShadow .rwShadow .rwControlButtons 
+{
+	margin: 7px -8px 0 0;
+}
+
+/* Icon when winodw is minimized */
+.RadWindow_Default.rwMinimizedWindowShadow .rwShadow .rwIcon 
+{
+	margin: 9px 6px 0 0;
+}
+
+/*title buttons when winodw is minimized */
+.RadWindow_Default.rwMinimizedWindowShadow .rwShadow em 
+{
+	margin: 4px 0 0 -1px;
+}
+
+.RadWindow_Default .rwShadow .rwControlButtons li
+{
+	float: left;
+	padding: 0;
+}
+
+.RadWindow_Default .rwShadow .rwControlButtons a
+{
+	width: 26px; 
+}
+
+.rwInactiveWindow .rwShadow .rwTopLeft,
+.rwInactiveWindow .rwShadow .rwTopRight,
+.rwInactiveWindow .rwShadow .rwTitlebar,
+.rwInactiveWindow .rwShadow .rwFooterLeft,
+.rwInactiveWindow .rwShadow .rwFooterRight,
+.rwInactiveWindow .rwShadow .rwFooterCenter,
+.rwInactiveWindow .rwShadow .rwTopResize,
+.rwInactiveWindow .rwShadow .rwStatusbar div,
+.rwInactiveWindow .rwShadow .rwStatusbar,
+.rwInactiveWindow .rwShadow .rwPopupButton,
+.rwInactiveWindow .rwShadow .rwPopupButton span,
+.rwInactiveWindow .rwShadow.rwMinimizedWindow .rwCorner,
+.RadWindow_Default.rwNoTitleBar.rwInactiveWindow .rwShadow .rwTopLeft,
+.RadWindow_Default.rwNoTitleBar.rwInactiveWindow .rwShadow .rwTitlebar,
+.RadWindow_Default.rwNoTitleBar.rwInactiveWindow .rwShadow .rwTopRight,
+.RadWindow_Default.rwNoTitleBar.rwInactiveWindow .rwShadow .rwFooterLeft,
+.RadWindow_Default.rwNoTitleBar.rwInactiveWindow .rwShadow .rwFooterCenter,
+.RadWindow_Default.rwNoTitleBar.rwInactiveWindow .rwShadow .rwFooterRight
+{
+    background-image: url('WebResource.axd?d=c3T1w7MrmM6WWKOMhHXFrlTXrhnlHbIgMD5lf1oxuscvym_8QQbuV5WSKjWQ9e-PSKZgKQPqRMRxh1ykyhb6bWeTtQWmqdolkFQ5ZijwL6jRWKR-HE8uDXTOrltl0QRDs9xbqfakG1E62FJRdvhJ1PZ9PGaB8wX9GWeKoYnaiiq2PRb9S2ujdX988n4T76SR0&t=637031068030000000') !important;
+}
+
+.rwInactiveWindow .rwShadow .rwBodyLeft,
+.rwInactiveWindow .rwShadow .rwBodyRight,
+.rwInactiveWindow .rwShadow .rwStatusbarRow .rwCorner,
+.RadWindow_Default.rwNoTitleBar.rwInactiveWindow .rwShadow .rwBodyLeft,
+.RadWindow_Default.rwNoTitleBar.rwInactiveWindow .rwShadow .rwBodyRight
+{
+	background-image: url('WebResource.axd?d=r14eFN2DvNve95OLZghbS8NV0n8fkBAnJj4L2s5ej9p70jLNXNZ3qTFTi5kRECM0iptCQ4-T_ULROeaqEuWooGPn7z2LTyRQcRgNW67t9Xr8aZe99juOR82jB4kcYaLKkP_onkmJulmm2pKi--U8INYDxbe25cyAUrIqQl5El2cK6WDgSzNiLYZM7EHmF_Qt0&t=637031068030000000') !important;
+}
+
+

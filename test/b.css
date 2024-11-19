@@ -1,0 +1,127 @@
+/* Reset mặc định */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif; /* Font dễ nhìn */
+    line-height: 1.6;
+    background-color: #f4f6f9; /* Màu nền tổng thể */
+    color: #333; /* Màu chữ */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #2c3e50;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #3498db; /* Màu xanh */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+#currentDate {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #e74c3c; /* Màu đỏ nổi bật */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 15px;
+    transition: background 0.3s;
+}
+
+th {
+    background: #2c3e50; /* Màu tiêu đề */
+    color: #fff;
+    font-size: 1rem;
+}
+
+td {
+    background: #ecf0f1; /* Màu nền ô */
+}
+
+td:hover {
+    background: #dcdde1; /* Màu khi hover */
+}
+
+.time-block {
+    background-color: #f39c12; /* Màu cam */
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.legend {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.legend div {
+    display: flex;
+    align-items: center;
+}
+
+.legend div span {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 10px;
+    border-radius: 3px;
+}
+
+.legend .theory span {
+    background-color: #3498db; /* Màu xanh */
+}
+
+.legend .practice span {
+    background-color: #e67e22; /* Màu cam */
+}
+
+.legend .online span {
+    background-color: #9b59b6; /* Màu tím */
+}
+
+.legend .exam span {
+    background-color: #e74c3c; /* Màu đỏ */
+}

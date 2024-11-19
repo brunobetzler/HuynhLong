@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Kết Quả Học Tập</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            text-align: center;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .results, .discipline-points {
+            display: none;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kết quả Học Tập</h1>
+        
+        <div class="actions">
+            <button class="button" onclick="showScores()">Xem điểm</button>
+            <button class="button" onclick="showDisciplinePoints()">Xem điểm rèn luyện</button>
+        </div>
+        <div class="results" id="scores-section">
+            <h1>Bảng Điểm Học Kỳ 1 Năm Học 2023-2024</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Mã lớp học phần</th>
+                        <th>Tên môn học</th>
+                        <th>Số tín chỉ</th>
+                        <th>Giữa kỳ</th>
+                        <th>Thường xuyên</th>
+                        <th>Cuối kỳ</th>
+                        <th>Điểm tổng kết</th>
+                        <th>Điểm chữ</th>
+                        <th>Xếp loại</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>0104001202134</td>
+                        <td>Giải tích 1</td>
+                        <td>3</td>
+                        <td>7.80</td>
+                        <td>6.00</td>
+                        <td>6.00</td>
+                        <td>6.90</td>
+                        <td>C+</td>
+                        <td>Trung bình</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>010400121525</td>
+                        <td>Xác suất thống kê</td>
+                        <td>3</td>
+                        <td>6.50</td>
+                        <td>5.00</td>
+                        <td>5.00</td>
+                        <td>5.80</td>
+                        <td>C</td>
+                        <td>Trung bình</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>01041213707</td>
+                        <td>Quản trị doanh nghiệp CNTT</td>
+                        <td>3</td>
+                        <td>8.70</td>
+                        <td>7.80</td>
+                        <td>7.80</td>
+                        <td>8.30</td>
+                        <td>B+</td>
+                        <td>Khá</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>010412420204</td>
+                        <td>Nhập môn CNTT</td>
+                        <td>3</td>
+                        <td>9.40</td>
+                        <td>8.80</td>
+                        <td>8.80</td>
+                        <td>9.10</td>
+                        <td>A</td>
+                        <td>Giỏi</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>010412401114</td>
+                        <td>Kỹ thuật lập trình</td>
+                        <td>4</td>
+                        <td>9.00</td>
+                        <td>5.50</td>
+                        <td>5.50</td>
+                        <td>7.30</td>
+                        <td>B</td>
+                        <td>Khá</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="note">
+                Tổng số tín chỉ đã đăng ký: 16 | Điểm trung bình học kỳ hệ 10: 7.47 | Xếp loại học kỳ: <strong>Khá</strong>
+            </div>
+        </div>
+
+        <div class="discipline-points" id="discipline-section">
+            <h2>Điểm rèn luyện</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Hoạt động</th>
+                        <th>Điểm cộng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Hiến máu</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Tham gia ngày hội trường</td>
+                        <td>5</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>
+                Tổng điểm: <strong>15</strong>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function showScores() {
+            document.getElementById("scores-section").style.display = "block";
+            document.getElementById("discipline-section").style.display = "none";
+        }
+
+        function showDisciplinePoints() {
+            document.getElementById("scores-section").style.display = "none";
+            document.getElementById("discipline-section").style.display = "block";
+        }
+    </script>
+</body>
+</html>

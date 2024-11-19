@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Đăng Ký Học Phần</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Hệ Thống Đăng Ký Học Phần</h1>
+
+    <!-- Chọn học kỳ -->
+    <div class="step">
+      <h2>Chọn học kỳ</h2>
+      <select id="semesterSelect">
+        <option value="" disabled selected>-- Chọn học kỳ --</option>
+        <option value="2024-1">Học kỳ 1 - Năm học 2024</option>
+        <option value="2024-2">Học kỳ 2 - Năm học 2024</option>
+        <option value="2024-3">Học kỳ hè - Năm học 2024</option>
+      </select>
+    </div>
+
+    <!-- Hiển thị các môn học -->
+    <div class="step" id="subjectStep" style="display: none;">
+      <h2>Chọn môn học</h2>
+      <ul id="subjectList"></ul>
+    </div>
+
+    <!-- Hiển thị danh sách lớp học -->
+    <div class="step" id="classStep" style="display: none;">
+      <h2>Danh sách lớp học</h2>
+      <ul id="classList"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

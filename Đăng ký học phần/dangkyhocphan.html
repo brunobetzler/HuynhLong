@@ -1,0 +1,1170 @@
+<html class="k-webkit k-webkit130"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký học phần</title>
+        <link rel="shortcut icon" href="/Content/AConfig/images/favicon.png">
+    <link rel="stylesheet" type="text/css" href="/Đăng ký học phần/Theme/css/main.css">
+    <link href="/Đăng ký học phần/dashboard/components.min.css" rel="stylesheet">
+    <link href="/Đăng ký học phần/dashboard/profile.min.css" rel="stylesheet">
+
+    <link href="/Đăng ký học phần/Theme/css/tooltipster.bundle.css" rel="stylesheet">
+
+    <link href="/Đăng ký học phần/kendall/kendo.common.min.csss" rel="stylesheet">
+    <link href="/Đăng ký học phần/kendall/kendo.cms.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/Đăng ký học phần/Theme/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/Đăng ký học phần/Theme/css/base.css">
+    <link rel="stylesheet" type="text/css" href="/Đăng ký học phần/Theme/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="/Đăng ký học phần/Theme/css/chat.css">
+    <link rel="stylesheet" type="text/css" href="/Đăng ký học phần/Theme/css/switch.css">
+
+
+    <script type="text/javascript" src="/Đăng ký học phần/Theme/js/jquery.js"></script>
+    <script src="/Đăng ký học phần/scripts/kendo/kendo.all.min.js"></script>
+    <script src="/Đăng ký học phần/scripts/kendo/kendo.timezones.min.js"></script>
+    <script src="/Đăng ký học phần/scripts/kendo/kendo.aspnetmvc.min.js"></script>
+    
+
+    <script src="/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <link href="/Đăng ký học phần/toastr.min.css" rel="stylesheet">
+    <script src="/Đăng ký học phần/toastr.min.js"></script>
+    <script src="/Scripts/jquery.validate.min.js"></script>
+    <script src="/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+    <script src="/Scripts/jquery.cms.js?v=194"></script>
+    <script src="/Scripts/jquery-cms-sv.js?v=194"></script>
+
+    <link href="/Đăng ký học phần/Theme/css/jquery-confirm.min.css" rel="stylesheet">
+    <script src="/Scripts/jquery-confirm.min.js"></script>
+
+</head>
+<body>
+    <input id="UID" name="UID" type="hidden" value="22">
+    <input id="CurrentLanguage" name="CurrentLanguage" type="hidden" value="">
+    <div id="focus-overlay"></div>
+    <div class="wrapper">
+        
+<style>
+
+    body{
+        background-color: #4b4646;
+    }
+    @keyframes bellmove {
+        from {
+            top: -8px;
+        }
+
+        to {
+            top: -5px;
+        }
+    }
+</style>
+<script type="text/javascript" src="/Đăng ký học phần/scripts/lang/langSpecial.js"></script>
+<header class="header">
+    <div class="container">
+        <div class="header-content">
+            <div class="logo">
+                <a href="/dashboard.html" title="">
+                        <img src="/myschool/Resources/Images/Longviet.jpg" style="max-height: 40px !important;">
+                </a>
+            </div>
+            <div class="search-bar">
+                <form action="/sinh-vien-tin-tuc-thong-bao-search.html">
+                    <input type="text" id="k" name="k" langid="header-search-placeholder" placeholder="Tìm kiếm..." required="">
+                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </form>
+            </div>
+
+            <div class="menu-btn">
+                <a href="#" title=""><i class="fa fa-bars"></i></a>
+            </div>
+            
+            <div class="user-account dropdown">
+                <div class="user-info" data-toggle="dropdown">
+                            <img class="user-account-img" src="/myschool/Resources/Images/capybara.jpg" style="width: 30px;height: 30px;border-radius: 50% !important;object-fit: cover;">
+                                        <a class="user-account-name" href="#" title="">Nguyễn Huy Hoàng </a>
+                    <i class="fa fa-caret-down user-account-name-caret-down" aria-hidden="true"></i>
+                </div>
+                <div class="user-account-info dropdown-menu pull-right">
+                    <ul class="us-links">
+                        <li><a href="/thong-tin-sinh-vien.html" title="">Thông tin cá nhân</a></li>
+                        <li><a title="" onclick="popupDoiMatKhau()">Đổi mật khẩu</a></li>
+                        <li><a href="/SinhVien/Logout" title="">Đăng xuất</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+
+</script>
+        <div class="main-content">
+            <div class="container" id="full-resize-table">
+                <div class="main-section-content" id="contnet">
+                    <div class="row">
+                        
+<style>
+    /* POPUP */
+
+    #boxes_Pop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 2100;
+        width: 100%;
+        height: 100%;
+    }
+    #boxes_Pop .closePopup {
+        position: absolute;
+        background: url("/Content/ThemeMXH/img/icons/close-pop.png") no-repeat center center #369ef4;
+        right: 0;
+        top: 0;
+        width: 26px;
+        height: 26px;
+        opacity: 1;
+    }
+
+    #boxes_Pop .window {
+        position: absolute;
+        display: none;
+        z-index: 990;
+        border-radius: 5px;
+        max-width: 75%;
+        height: 85vh;
+    }
+
+        #boxes_Pop .window.window_small {
+            height: auto;
+            max-width: 400px;
+        }
+
+        #boxes_Pop #dialog_Pop {
+            padding: 30px;
+            background-color: #8b5656;
+            font-size: 14px;
+            overflow-y: scroll;
+        }
+
+    #boxes_Pop .window::-webkit-scrollbar-track {
+        background-color: #eaeaea;
+    }
+
+    #boxes_Pop .window::-webkit-scrollbar {
+        width: 5px;
+        background-color: #369ef4;
+    }
+
+    #boxes_Pop .window::-webkit-scrollbar-thumb {
+        background-color: #369ef4;
+    }
+
+
+    #boxes_Pop .window .header-box-flex {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: stretch;
+        align-content: center;
+    }
+
+        #boxes_Pop .window .header-box-flex .text-right {
+            width: 100%;
+        }
+
+    #boxes_Pop .content {
+        padding-bottom: 30px;
+    }
+
+        #boxes_Pop .content .title_heading {
+            font-size: 24px;
+            margin-bottom: 30px;
+            margin-top: 0;
+            color: #000;
+            font-weight: 700;
+            width: 100%;
+        }
+
+        #boxes_Pop .content .desc-box {
+            margin-bottom: 30px;
+            margin-top: 30px;
+            color: #003f65;
+        }
+    #mask_Pop {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 99;
+        background-color: #535353;
+        display: none;
+    }
+</style>
+<div class="col-md-12 col-xs-12" style="min-height:2000px">
+    <div class="box-df">
+        <div class="portlet">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject bold" lang="dangkyhocphan-pagetitle">Đăng ký học phần</span>
+                </div>
+                <div>
+
+                </div>
+                <div hidden="" id="warningChonDot" name="warningChonDot" lang="dangkyhocphan-warningChonDot">Chọn đợt đăng ký học phần</div>
+                <div hidden="" id="warningChonHPDangKy" name="warningChonHPDangKy" lang="dangkyhocphan-warningChonHPDangKy">Chọn chi tiết học phần cần đăng ký</div>
+                <div hidden="" id="warningChonLichCoNhom" name="warningChonLichCoNhom" lang="dangkyhocphan-warningChonLichCoNhom">học phần có chia nhóm thực hành, vui lòng chọn lịch có nhóm.</div>
+                <div hidden="" id="warningHuyDKFail" name="warningHuyDKFail" lang="dangkyhocphan-warningHuyDKFail">Hủy đăng ký không thành công</div>
+                <div hidden="" id="warningMHDKNotFound" name="warningMHDKNotFound" lang="dangkyhocphan-warningMHDKNotFound">Không tìm thấy dữ liệu chi tiết môn học đăng ký</div>
+            </div>
+            <div class="portlet-body">
+                <div class="">
+                    
+                    <div class="form-body">
+                        <div class="col-md-2"></div>
+                        <div class="form-group  col-md-4">
+                            <div>
+                                <select class="form-control" id="cboIDDotDangKy" name="cboIDDotDangKy" placeholder="Chọn đợt đăng ký"><option value="">Chọn đợt đăng ký</option>
+<option value="71">Học kỳ 1 năm học 2024-2025</option>
+<option value="70">Học kỳ hè năm học 2023-2024</option>
+<option value="69">Học kỳ 2 năm học 2023-2024</option>
+<option value="68">Học kỳ 1 năm học 2023-2024</option>
+</select>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div>
+                                <div class="mt-radio-inline">
+                                        <label class="mt-radio">
+                                            <input checked="checked" id="rdoLoaiDangKyHocPhan" name="rdoLoaiDangKyHocPhan" type="radio" value="1"> Học mới
+                                            <span></span>
+                                        </label>
+                                                                                <label class="mt-radio">
+                                                <input id="rdoLoaiDangKyHocPhan" name="rdoLoaiDangKyHocPhan" type="radio" value="2"> Học lại
+                                                <span></span>
+                                            </label>
+                                            <label class="mt-radio">
+                                                <input id="rdoLoaiDangKyHocPhan" name="rdoLoaiDangKyHocPhan" type="radio" value="3"> Học cải thiện
+                                                <span></span>
+                                            </label>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                                    </div>
+                <div class="gr-table" id="monHPChoDangKy">
+
+                    <div class="border-scroll" style="overflow: hidden; outline: none;" tabindex="0">
+                        
+                        <div id="box_monhocphan_chodangky">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" id="lopHPChoDangKy">
+                    <div class="col-md-6">
+                        <div class="gr-table">
+                            <div class="border-scroll" style="max-height: 370px; overflow: hidden; outline: none;" tabindex="1">
+                                <div id="box_lophocphan_chodangky">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="gr-table">
+
+                            <div class="border-scroll" tabindex="2" style="overflow: hidden; outline: none;">
+                                <div id="box_chitietlophocphan_chodangky">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="EndLopHPChoDangKy"></div>
+                </div>
+
+                <div class="gr-table" id="box_monHocPhan_DaDangKy">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<script type="text/javascript" src="/Đăng ký học phần/scripts/lang/lang.js"></script>
+<script>
+
+    function DangKyHocPhan(e) {
+        var msgChonHPDK = document.getElementById('warningChonHPDangKy').innerHTML;
+        var msgChonLichNhom = document.getElementById('warningChonLichCoNhom').innerHTML;
+        var loaiDangKy = parseInt($("#rdoLoaiDangKyHocPhan:checked").val());
+        var idDotDangKy = $('#cboIDDotDangKy').val();
+        var guid = $("#tbChiTietDKHP .tr-chitietlichdangky").data('guididdk');
+        if (guid == undefined || guid == "") {
+            
+            showPopUpMessage(msgChonHPDK);
+            return false;
+        } else {
+            var isNhom = $("#tbChiTietDKHP .tr-chitietlichdangky").data('chonnhom');
+            var nhomTH = null; //$("#tbChiTietDKHP tr[class='tr-active']").data('nhomth');
+            if (isNhom) {
+                nhomTH = parseInt($("#tbChiTietDKHP .tr-active-nhom").data('nhomth'));//parseInt($('#cboNhomTHLHP').val());
+                if (isNaN(nhomTH) || nhomTH == NaN || nhomTH == undefined || nhomTH <= 0) {
+                    
+                    showPopUpMessage(msgChonLichNhom);
+                    return false;
+                }
+            }
+            $.ajax({
+                url: "/dang-ky-hoc-phan.html",
+                type: 'POST',
+                data: {
+                    param: {
+                        IDDotDangKy: idDotDangKy,
+                        IDLoaiDangKy: loaiDangKy,
+                        GuidIDLopHocPhan: guid,
+                        IDNhomThucHanh : nhomTH
+                    }
+                },
+                dataType: 'json',
+                beforeSend: function () {
+                    loadingMark();
+                },
+                success: function (data) {
+                    removeLoadingMark();
+                    var jsonResult = data;
+                    if (jsonResult != null && jsonResult != undefined) {
+                        if (jsonResult.Code == "00") {
+                            showPopUpMessage(jsonResult.Message);
+                            resetDKHP();
+                            LoadDuLieuDKHP();
+                            LoadLopHocPhanDaDangKy();
+                            //$("html, body").animate({ scrollTop: 0 }, 700);
+                            ScrollDaDangKy();
+                        } else {
+                            showPopUpMessage(jsonResult.ExceptionMessage);
+                        }
+                    }
+                }
+            });
+        }
+    };
+
+
+    function HuyLopHocPhanDangKy(el, guid, malhp) {
+        var msgHuyDKFail = document.getElementById('warningHuyDKFail').innerHTML;
+
+        var idDK = $(el).data('idlhpdk');
+        if (idDK != undefined && guid != undefined && idDK != "" && guid != "") {
+            $('<div class="modal-backdrop fade in"></div>').appendTo(document.body);
+            toastr.options.onclick = function () {
+                $('.modal-backdrop').remove();
+                toastr.remove();
+            };
+            toastr.success("<div style='text-align:right;'>  <button type='button' id='confirmDeleteYes' class='btn blue btn-sm'>Đồng ý</button><button type='button' class='btn btn-danger btn-sm' style='margin-right:15px;'>Không</button></div><div class='clearfix'></div>", "Bạn có đồng ý hủy đăng ký LHP [" + malhp + "] không?", {
+                closeButton: false,
+                allowHtml: true,
+                timeOut: 0,
+                extendedTimeOut: 0,
+                positionClass: 'toast-center toast-top-center',
+                onShown: function (toast) {
+                    $("#confirmDeleteYes").click(function () {
+                        $.ajax({
+                            url: "/SinhVienDangKy/HuyDangKyHocPhan",
+                            type: 'POST',
+                            data: {
+                                param: {
+                                    IDDangKyHocPhan: idDK,
+                                    GuidIDDangKyLopHocPhan: guid
+                                }
+                            },
+                            dataType: 'json',
+                            success: function (data) {
+                                var jsonResult = data;
+                                if (jsonResult != null && jsonResult != undefined) {
+                                    if (jsonResult.Code == "00") {
+                                        showPopUpMessage(jsonResult.Message);
+                                        resetDKHP();
+                                        LoadDuLieuDKHP();
+                                        LoadLopHocPhanDaDangKy();
+                                        ScrollDaDangKy();
+                                    } else {
+                                        showPopUpMessage(jsonResult.ExceptionMessage);
+                                    }
+                                }
+                            }
+                        });
+                    });
+                }
+            });
+        } else {
+            /*showPopUpMessage('Hủy đăng ký không thành công');*/
+            showPopUpMessage(msgHuyDKFail);
+        }
+
+
+
+
+    }
+
+    function ChuyenDoiLopHocPhanDangKy(el, guid, stringParamGet) {
+        var msgMHDKNotFound = document.getElementById('warningMHDKNotFound').innerHTML;
+        $.ajax({
+            url: "/SinhVienDangKy/ChuyenDoiHocPhan",
+            type: 'POST',
+            data: {
+                param: {
+                    IDDangKyHocPhanGuid: guid,
+                    //IDMaNhomTH: nhom
+                },
+                StringParamGet: stringParamGet
+            },
+            dataType: 'html',
+            beforeSend: function () {
+                loadingMark();
+            },
+            success: function (data) {
+                if (data.length < 100) {
+                    var jsonResult = JSON.parse(data);
+                    if (jsonResult != null && jsonResult != undefined) {
+                        showPopUpMessage(jsonResult.ExceptionMessage);
+                    }
+                } else {
+                    showPopUpChiTietPop(data);
+                }
+
+                removeLoadingMark();
+            }, error: function (xhr, ajaxOptions, thrownError) {
+                removeLoadingMark();
+                /*showPopUpMessage("Không tìm thấy dữ liệu chi tiết môn học đăng ký");*/
+                showPopUpMessage(msgMHDKNotFound);
+            }
+        });
+    }
+
+    function XemChiTietLichHoc(el, guid, nhom) {
+        var msgMHDKNotFound = document.getElementById('warningMHDKNotFound').innerHTML;
+        $.ajax({
+                url: "/SinhVienDangKy/GetChiTietLichHoc",
+                type: 'POST',
+                data: {
+                    param: {
+                        GuidIDLopHocPhan: guid
+                        //IDMaNhomTH: nhom
+                    }
+                },
+                dataType: 'html',
+                beforeSend: function () {
+                    loadingMark();
+                },
+                success: function (data) {
+                    removeLoadingMark();
+                    showPopUpChiTiet(data);
+                },error: function (xhr, ajaxOptions, thrownError) {
+                    removeLoadingMark();
+                    /*showPopUpMessage("Không tìm thấy dữ liệu chi tiết môn học đăng ký");*/
+                    showPopUpMessage(msgMHDKNotFound);
+                }
+        });
+    }
+
+    function XemLichTrung(e) {
+        var msgChonHPDK = document.getElementById('warningChonHPDangKy').innerHTML;
+        var idDotDangKy = $('#cboIDDotDangKy').val();
+        var guid = $("#tbChiTietDKHP .tr-chitietlichdangky").data('guididdk');
+        if (guid == undefined || guid == "") {
+            
+            showPopUpMessage(msgChonHPDK);
+            return false;
+        }
+        else {
+            var msgChonLichNhom = document.getElementById('warningChonLichCoNhom').innerHTML;
+            var isNhom = $("#tbChiTietDKHP .tr-chitietlichdangky").data('chonnhom');
+            var nhomTH = null; //$("#tbChiTietDKHP tr[class='tr-active']").data('nhomth');
+            if (isNhom) {
+                nhomTH = parseInt($("#tbChiTietDKHP .tr-active-nhom").data('nhomth'));//parseInt($('#cboNhomTHLHP').val());
+                if (isNaN(nhomTH) || nhomTH == NaN || nhomTH == undefined || nhomTH <= 0) {
+                    
+                    showPopUpMessage(msgChonLichNhom);
+                    return false;
+                }
+            }
+            $.ajax({
+                url: "/SinhVienDangKy/GetTrungLichHocSinhVien",
+                type: 'POST',
+                data: {
+                    param: {
+                        IDDotDangKy: idDotDangKy,
+                        GuidIDLopHocPhan: guid,
+                        IDNhomThucHanh : nhomTH
+                    }
+                },
+                dataType: 'html',
+                beforeSend: function () {
+                    loadingMark();
+                },
+                success: function (data) {
+                    removeLoadingMark();
+                    showPopUpChiTiet(data);
+                }, error: function (xhr, ajaxOptions, thrownError) {
+                    removeLoadingMark();
+                    showPopUpMessage("Không tìm thấy dữ liệu lịch trùng");
+                }
+            });
+        }
+    };
+
+
+    $('#cboIDDotDangKy').on('change', function () {
+        resetDKHP();
+        CheckDotDangKy();
+    });
+
+    $('input[type=radio][name=rdoLoaiDangKyHocPhan]').change(function () {
+        resetDKHP();
+        CheckDotDangKy();
+    });
+
+    function CheckDotDangKy() {
+        var msgChonDot = document.getElementById('warningChonDot').innerHTML;
+        var idDotDangKy = $('#cboIDDotDangKy').val();
+
+        if (idDotDangKy != undefined && idDotDangKy != "") {
+
+            $.ajax({
+                url: "/SinhVienDangKy/CheckDotChoPhepDangKy",
+                type: 'POST',
+                data: {
+                    param: {
+                        IDDotDangKy: idDotDangKy
+                    }
+                },
+                dataType: 'json',
+                success: function (data) {
+                    var jsonResult = data;
+                    if (jsonResult != null && jsonResult != undefined) {
+                        if (jsonResult.Code == "00") {
+                            LoadDuLieuDKHP();
+                        } 
+			else if(jsonResult.Code == "01"){showPopUpMessage('Chưa tới thời gian đăng ký học phần');}
+			else {
+                            showPopUpMessage(jsonResult.ExceptionMessage);
+                        }
+                    }
+
+
+                }
+            });
+
+            LoadLopHocPhanDaDangKy();
+        } else {
+            
+            showPopUpMessage(msgChonDot);
+        }
+    }
+
+    function LoadDuLieuDKHP() {
+
+        var idDotDangKy = $('#cboIDDotDangKy').val();
+
+        if (idDotDangKy != undefined && idDotDangKy != "") {
+            var loaiDangKy = parseInt($("#rdoLoaiDangKyHocPhan:checked").val());
+            $.ajax({
+                url: "/SinhVienDangKy/MonHocPhanChoDangKy",
+                type: 'POST',
+                data: {
+                    param: {
+                        IDDotDangKy: idDotDangKy,
+                        IDLoaiDangKy: loaiDangKy
+                    }
+                },
+                dataType: 'html',
+                beforeSend: function () {
+                    loadingDKHP('box_monhocphan_chodangky');
+                },
+                success: function (data) {
+                    $('#box_monhocphan_chodangky').html("");
+                    var jsonResult = null;
+                    try {
+                        jsonResult = JSON.parse(data);
+                    } catch (exxx) {}
+
+                    if (jsonResult != null && jsonResult != undefined && jsonResult.Message != "" && jsonResult.ExceptionMessage != "" && jsonResult.Message != undefined && jsonResult.ExceptionMessage != undefined) {
+                        showPopUpMessage(jsonResult.ExceptionMessage);
+                    } else {
+                        $('#box_monhocphan_chodangky').html(data);
+                    }
+                }
+            });
+
+
+        }
+    }
+
+    function LoadLopHocPhanDaDangKy() {
+        var idDotDangKy = $('#cboIDDotDangKy').val();
+        if (idDotDangKy != undefined && idDotDangKy != "")
+        {
+            var loaiDangKy = parseInt($("#rdoLoaiDangKyHocPhan:checked").val());
+            $.ajax({
+                url: "/SinhVienDangKy/HocPhanDaDangKy",
+                type: 'POST',
+                data: {
+                    param: {
+                        IDDotDangKy: idDotDangKy,
+                        IDLoaiDangKy: loaiDangKy
+                    }
+                },
+                dataType: 'html',
+                beforeSend: function () {
+                    loadingDKHP('box_monHocPhan_DaDangKy');
+                },
+                success: function (data) {
+                    $('#box_monHocPhan_DaDangKy').html('');
+                    var jsonResult = null;
+                    try {
+                        jsonResult = JSON.parse(data);
+                    } catch (exxx) { }
+
+                    if (jsonResult != null && jsonResult != undefined && jsonResult.Message != "" && jsonResult.ExceptionMessage != "" && jsonResult.Message != undefined && jsonResult.ExceptionMessage != undefined) {
+                        showPopUpMessage(jsonResult.ExceptionMessage);
+                    } else {
+                        $('#box_monHocPhan_DaDangKy').html(data);
+                    }
+                }
+            });
+        }
+    }
+
+    function SelectMonHocChoDangKy(e) {
+        var _isLHPKhongTrungLich = $("#checkLichTrung").is(':checked');
+        $("#box_monhocphan_chodangky table tr").removeClass("tr-active");
+        $(e).addClass('tr-active');
+        $('#box_lophocphan_chodangky').html("");
+        $('#box_chitietlophocphan_chodangky').html("");
+        var idMonHoc = $(e).data('id');
+        var mamh = $(e).data('mamh');
+        var mahpduochoc = $(e).data('mahpduochoc');
+        var loaiDangKy = parseInt($("#rdoLoaiDangKyHocPhan:checked").val());
+        $.ajax({
+            url: "/SinhVienDangKy/LopHocPhanChoDangKy",
+            type: 'POST',
+            data: {
+                param: {
+                    IDDotDangKy: $('#cboIDDotDangKy').val(),
+                    MaMonHoc: mamh,
+                    DSHocPhanDuocHoc: mahpduochoc,
+                    IsLHPKhongTrungLich: _isLHPKhongTrungLich,
+                    LoaiDKHP: loaiDangKy
+                }
+            },
+            dataType: 'html',
+            beforeSend: function () {
+                loadingMark();
+                //loadingDKHP('box_lophocphan_chodangky');
+            },
+            success: function (data) {
+                removeLoadingMark();
+                $('#box_lophocphan_chodangky').html('');
+                var jsonResult = null;
+                try {
+                    jsonResult = JSON.parse(data);
+                } catch (exxx) { }
+
+                if (jsonResult != null && jsonResult != undefined && jsonResult.Message != "" && jsonResult.ExceptionMessage != "" && jsonResult.Message != undefined && jsonResult.ExceptionMessage != undefined) {
+                    showPopUpMessage(jsonResult.ExceptionMessage);
+                } else {
+                    $('#box_lophocphan_chodangky').html(data);
+                    ScrollLopHP();
+                }
+            }
+        });
+    };
+
+    function SelectLopHocPhanChoDangKy(e) {
+        $("#box_lophocphan_chodangky table tr").removeClass("tr-active");
+        $(e).addClass('tr-active');
+        $('#box_chitietlophocphan_chodangky').html("");
+        var guid = $(e).data('guidlhp');
+        $.ajax({
+            url: "/SinhVienDangKy/ChiTietLopHocPhanChoDangKy",
+            type: 'POST',
+            data: {
+                param: {
+                    GuidIDLopHocPhan: guid
+                }
+            },
+            dataType: 'html',
+            beforeSend: function () {
+                loadingMark();
+                //loadingDKHP('box_chitietlophocphan_chodangky');
+            },
+            success: function (data) {
+                removeLoadingMark();
+                $('#box_chitietlophocphan_chodangky').html('');
+                var jsonResult = null;
+                try {
+                    jsonResult = JSON.parse(data);
+                } catch (exxx) { }
+
+                if (jsonResult != null && jsonResult != undefined && jsonResult.Message != "" && jsonResult.ExceptionMessage != "" && jsonResult.Message != undefined && jsonResult.ExceptionMessage != undefined) {
+                    showPopUpMessage(jsonResult.ExceptionMessage);
+                } else {
+                    $('#box_chitietlophocphan_chodangky').html(data);
+                }
+
+            }
+        });
+    }
+
+    function SelectChiTietLopHocPhan(elm) {
+        var isCoChonNhom = $(elm).data('chonnhom');
+        if (isCoChonNhom) {
+            var idNhomTH = parseInt($(elm).data('nhomth'));
+            if (isNaN(idNhomTH) || idNhomTH == NaN || idNhomTH == undefined || idNhomTH <= 0) {
+
+            } else {
+                var listTH = $("#box_chitietlophocphan_chodangky table tr");
+                $.each(listTH, function (i, obj) {
+                    $(obj).removeClass("tr-active-nhom");
+                    if ($(obj).data("nhomth") == idNhomTH) {
+                        $(obj).addClass("tr-active-nhom");
+                    }
+                });
+            }
+        }
+        //$("#box_chitietlophocphan_chodangky table tr").removeClass("tr-active-nhom");
+        //$(elm).addClass('tr-active-nhom');
+    }
+
+    function SelectHocPhanDaDangKy(e) {
+        $("#box_monHocPhan_DaDangKy table tr").removeClass("tr-active");
+        $(e).addClass('tr-active');
+    }
+
+
+    function XemDSSVLopHocPhanDaDangKy(IDLopHocPhan, Nhom, MaLHP, TenMonHoc) {
+        $.ajax({
+            url: '/SinhVienDangKy/GetDanhSachSinhVienDangKyHocPhan',
+            type: 'POST',
+            data: {
+                IDLopHocPhan: IDLopHocPhan,
+                Nhom: Nhom,
+                MaLHP: MaLHP,
+                TenMonHoc: TenMonHoc
+            },
+            dataType: 'html',
+            beforeSend: function () {
+                loadingMark();
+            },
+            success: function (data) {
+                removeLoadingMark();
+                var jsonResult = null;
+                try {
+                    jsonResult = JSON.parse(data);
+                } catch (exxx) { }
+                if (jsonResult != null && jsonResult != undefined && jsonResult.Message != "" && jsonResult.ExceptionMessage != "" && jsonResult.Message != undefined && jsonResult.ExceptionMessage != undefined) {
+                    showPopUpMessage(jsonResult.Message);
+                } else {
+                    showPopUpChiTiet(data);
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                removeLoadingMark();
+                showPopUpMessage("Không tìm thấy danh sách sinh viên môn học đăng ký");
+            }
+        });
+    }
+
+
+    function HuyDeHocLaiLopHocPhanDangKy(el, guid, textconfirm) {
+      toastr.clear();
+      toastr.remove();
+      var msgHuyDKFail = document.getElementById('warningHuyDKFail').innerHTML;
+      var idDK = $(el).data('idlhpdk');
+      if (idDK != undefined && guid != undefined && idDK != "" && guid != "") {
+        $('<div class="modal-backdrop fade in"></div>').appendTo(document.body);
+        toastr.options.onclick = function () {
+          $('.modal-backdrop').remove();
+          toastr.remove();
+        };
+          toastr.success("<div style='text-align:right;'>  <button type='button' id='confirmDeleteYes' class='btn blue btn-sm'>Đồng ý</button><button type='button' class='btn btn-danger btn-sm' style='margin-right:15px;'>Không</button></div><div class='clearfix'></div>", "Hủy đăng ký để học lại môn [" + textconfirm + "], nếu bạn đồng ý thì môn học này sẽ đánh giá không đạt, bạn có đồng ý?", {
+          closeButton: false,
+          allowHtml: true,
+          timeOut: 0,
+          extendedTimeOut: 0,
+          positionClass: 'toast-center toast-top-center',
+          onShown: function (toast) {
+            $("#confirmDeleteYes").click(function () {
+              $.ajax({
+                url: "/SinhVienDangKy/HuyDangKyHocPhanDeHocLai",
+                type: 'POST',
+                data: {
+                  param: {
+                    IDDangKyHocPhan: idDK,
+                    GuidIDDangKyLopHocPhan: guid
+                  }
+                },
+                dataType: 'json',
+                success: function (data) {
+                  var jsonResult = data;
+                  if (jsonResult != null && jsonResult != undefined) {
+                    if (jsonResult.Code == "00") {
+                      showPopUpMessage(jsonResult.Message);
+                      resetDKHP();
+                      LoadDuLieuDKHP();
+                      LoadLopHocPhanDaDangKy();
+                      ScrollDaDangKy();
+                    } else {
+                      showPopUpMessage(jsonResult.ExceptionMessage);
+                    }
+                  }
+                }
+              });
+            });
+          }
+        });
+      } else {
+        showPopUpMessage(msgHuyDKFail);
+      }
+    }
+
+
+
+
+
+
+    function loadingDKHP(tagID) {
+        $('#' + tagID + '').html('<div class="iframe-loading-overlay" style="display: block;"><i class="fa fa-spinner fa-pulse fa-3x fa-fw" style="position:absolute;top:10px;left:50%;color:#f73900;margin-top:20%;margin-left:-45px;font-size:90px;"></i></div>');
+    }
+
+    function ScrollMonHP() {
+        try {
+            var top = $("#monHPChoDangKy").position().top;
+            $("html, body").animate({ scrollTop: top }, 400);
+        } catch (exx) { }
+    }
+    function ScrollLopHP() {
+        try {
+            var top = $("#lopHPChoDangKy").position().top;
+            $("html, body").animate({ scrollTop: top }, 400);
+        } catch (exx) { }
+    }
+    function ScrollDaDangKy() {
+        try {
+            var top = $("#box_monHocPhan_DaDangKy").position().top;
+            $("html, body").animate({ scrollTop: top }, 400);
+        } catch (exx) { }
+    }
+
+    function resetDKHP() {
+        $('#box_monhocphan_chodangky').html("");
+        $('#box_lophocphan_chodangky').html("");
+        $('#box_chitietlophocphan_chodangky').html("");
+        $('#box_monHocPhan_DaDangKy').html("");
+    }
+
+    function showPopUpMessage(message) {
+        $('<div id="boxes" style="height: inherit !important;"><div id="dialog" class="window" style="height: inherit !important;position: fixed; width:350px; top: 50%; left: 50%; transform: translate(-50%, -50%); display: block;padding-bottom: 15px;"><div class="content text-center"></div><div class="text-center"><button onclick="closePopup()" class="btn btn-sm btn-save">Đóng</button></div></div><div id="mask" style="width: 100%; height: 100vh; display: block; opacity: 0.9;"></div></div>').appendTo(document.body);
+        $('#boxes .content').html('<b>' + message + '</b>');
+    }
+    function showPopUpMessagePop(message) {
+        $('<div id="boxes_Pop" style="height: inherit !important;"><div id="dialog" class="window" style="height: inherit !important;position: fixed; width:350px; top: 50%; left: 50%; transform: translate(-50%, -50%); display: block;padding-bottom: 15px;"><div class="content text-center"></div><div class="text-center"><button onclick="closePopup()" class="btn btn-sm btn-save">Đóng</button></div></div><div id="mask" style="width: 100%; height: 100vh; display: block; opacity: 0.9;"></div></div>').appendTo(document.body);
+        $('#boxes_Pop .content').html('<b>' + message + '</b>');
+    }
+
+    function showPopUpChiTiet(content) {
+        $('<div id="boxes"><div id="dialog" style="display: block"  class="window"><a onclick="closePopup()"  class="closePopup agree"></a><div class="content"></div><div class="text-center"></div></div><div id="mask"></div></div>').appendTo(document.body);
+        $('#boxes .content').html('<div>' + content + '</div>');
+
+        var id = '#dialog';
+
+        var maskHeight = $(document).height();
+        var maskWidth = $(window).width();
+
+        $('#mask').css({'width':maskWidth,'height':maskHeight});
+        $('#mask').fadeIn(500);
+        $('#mask').fadeTo("slow",0.9);
+
+        var winH = $(window).height();
+        var winW = $(window).width();
+
+        $(id).css('top',  winH/3-$(id).height()/3);
+        $(id).css('left', winW / 2 - $(id).width() / 2);
+    }
+    function showPopUpChiTietPop(content) {
+        $('<div id="boxes_Pop"><div id="dialog_Pop" style="display: block"  class="window"><a onclick="closePopupPop()"  class="closePopup agree"></a><div class="content"></div><div class="text-center"></div></div><div id="mask_Pop"></div></div>').appendTo(document.body);
+        $('#boxes_Pop .content').html('<div>' + content + '</div>');
+
+        var id = '#dialog_Pop';
+
+        var maskHeight = $(document).height();
+        var maskWidth = $(window).width();
+
+        $('#mask_Pop').css({'width':maskWidth,'height':maskHeight});
+        $('#mask_Pop').fadeIn(500);
+        $('#mask_Pop').fadeTo("slow",0.9);
+
+        var winH = $(window).height();
+        var winW = $(window).width();
+
+        $(id).css('top',  winH/3-$(id).height()/3);
+        $(id).css('left', winW / 2 - $(id).width() / 2);
+    }
+
+    function closePopup() {
+        $('#mask').hide();
+        $('.window').hide();
+        $('#boxes').remove();
+    };
+    function closePopupPop() {
+        $('#mask_Pop').hide();
+        $('.window_Pop').hide();
+        $('#boxes_Pop').remove();
+    };
+    function removeLoadingMark() {
+        $('.k-loading-mask').remove();
+    }
+
+    function loadingMark() {
+        var html = '<div class="k-loading-mask" style="width: 100%;height: 100%;top: 0px;left: 0px;z-index: 99999999999999;display: block;background-color: #607d8b2b;position: fixed;bottom: 0px;"><i class="fa fa-spinner fa-pulse fa-3x fa-fw" style="position:absolute;top:10px;left:50%;color:#f73900;margin-top:20%;margin-left:-45px;font-size:90px;"></i></div>';
+        $(html).appendTo(document.body);
+    }
+
+    $(document).ready(function () {
+        $("html, body").animate({ scrollTop: 0 }, 700);
+    });
+
+</script>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="config-tool" class="closed">
+            
+            <div id="config-tool-options">
+                <div class="box-df p-0">
+    <div id="accordion-menu" class="accordion-menu">
+        <ul>
+            <li>
+                <a href="/dashboard.html" title=""><i class="fa fa-home" aria-hidden="true"></i><span lang="menusinhvien-left-home">TRANG CHỦ</span></a>
+            </li>
+                        <li>
+                            <a href="javascript:void(0)" title=""><i class="fa fa-tv" aria-hidden="true"></i><span lang="groupmenu-thongtinchung">THÔNG TIN CHUNG</span><span class="submenu-indicator"><i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+                                <ul class="submenu" style="">
+                                    <li style="">
+                                        <a href="/thong-tin-sinh-vien.html"><span lang="menusinhvien-1">Thông tin sinh viên</span></a>
+                                    </li>
+                                </ul>
+                                <ul class="submenu" style="">
+                                    <li style="">
+                                        <a href="/de-xuat-cap-nhat-thong-tin.html"><span lang="menusinhvien-2">Đề xuất cập nhật thông tin</span></a>
+                                    </li>
+                                </ul>
+                                <ul class="submenu" style="">
+                                    <li style="">
+                                        <a href="/de-xuat-bieu-mau.html"><span lang="menusinhvien-4">Đề xuất biểu mẫu</span></a>
+                                    </li>
+                                </ul>
+                                <ul class="submenu" style="">
+                                    <li style="">
+                                        <a href="/cap-nhat-BHYT.html"><span lang="menusinhvien-26">Cập nhật thông tin BHYT</span></a>
+                                    </li>
+                                </ul>
+                                <ul class="submenu" style="">
+                                    <li style="">
+                                        <a href="/ghi-chu-nhac-nho-sinh-vien.html"><span lang="menusinhvien-6">Ghi chú nhắc nhở</span></a>
+                                    </li>
+                                </ul>
+                                <ul class="submenu" style="">
+                                    <li style="">
+                                        <a href="/danh-sach-ho-so-ca-nhan.html"><span lang="menusinhvien-29">Danh sách hồ sơ cá nhân</span></a>
+                                    </li>
+                                </ul>
+                                <ul class="submenu" style="">
+                                    <li style="">
+                                        <a href="/sinh-vien/danh-sach-khao-sat.html"><span lang="menusinhvien-37">Khảo sát sự kiện</span></a>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title=""><i class="fa fa-mortar-board" aria-hidden="true"></i><span lang="groupmenu-hoctap">HỌC TẬP</span><span class="submenu-indicator"><i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+                                <ul class="submenu" style="">
+                                    <li style="">
+                                        <a href="/ket-qua-hoc-tap.html"><span lang="menusinhvien-7">Kết quả học tập</span></a>
+                                    </li>
+                                </ul>
+                                <ul class="submenu" style="">
+                                    <li style="">
+                                        <a href="/lich-theo-tuan.html"><span lang="menusinhvien-8">Lịch theo tuần</span></a>
+                                    </li>
+                                </ul>
+                                <ul class="submenu" style="">
+                                    <li style="">
+                                        <a href="/lich-theo-tien-do.html"><span lang="menusinhvien-9">Lịch theo tiến độ</span></a>
+                                    </li>
+                                </ul>
+                                <ul class="submenu" style="">
+                                    <li style="">
+                                        <a href="/lich-toan-truong.html"><span lang="menusinhvien-10">Lịch toàn trường</span></a>
+                                    </li>
+                                </ul>
+                                <ul class="submenu" style="">
+                                    <li style="">
+                                        <a href="/ket-qua-ren-luyen.html"><span lang="menusinhvien-12">Kết quả rèn luyện</span></a>
+                                    </li>
+                                </ul>
+                                <ul class="submenu" style="">
+                                    <li style="">
+                                        <a href="/thong-tin-diem-danh.html"><span lang="menusinhvien-11">Thông tin điểm danh</span></a>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title=""><i class="fa fa-check-square-o" aria-hidden="true"></i><span lang="groupmenu-dangkyhocphan">ĐĂNG KÝ HỌC PHẦN</span><span class="submenu-indicator"><i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+                                <ul class="submenu" style="">
+                                    <li style="">
+                                        <a href="/dang-ky-hoc-phan.html"><span lang="menusinhvien-15">Đăng ký học phần</span></a>
+                                    </li>
+                                </ul>
+                                <ul class="submenu" style="">
+                                    <li style="">
+                                        <a href="/dang-ky-mon-hoc-dieu-kien.html"><span lang="menusinhvien-18">Đăng ký môn học điều kiện</span></a>
+                                    </li>
+                                </ul>
+                                <ul class="submenu" style="">
+                                    <li style="">
+                                        <a href="/chuong-trinh-khung.html"><span lang="menusinhvien-14">Chương trình khung</span></a>
+                                    </li>
+                                </ul>
+                                <ul class="submenu" style="">
+                                    <li style="">
+                                        <a href="/dang-ky-thi.html"><span lang="menusinhvien-16">Đăng ký thi lại</span></a>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title=""><i class="fa fa-cc-visa" aria-hidden="true"></i><span lang="groupmenu-hocphi">HỌC PHÍ</span><span class="submenu-indicator"><i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+                                <ul class="submenu" style="">
+                                    <li style="">
+                                        <a href="/cong-no-sinh-vien.html"><span lang="menusinhvien-20">Tra cứu công nợ</span></a>
+                                    </li>
+                                </ul>
+                                <ul class="submenu" style="">
+                                    <li style="">
+                                        <a href="/phieu-thu.html"><span lang="menusinhvien-25">Phiếu thu trực tuyến</span></a>
+                                    </li>
+                                </ul>
+                                <ul class="submenu" style="">
+                                    <li style="">
+                                        <a href="/thanh-toan-truc-tuyen.html"><span lang="menusinhvien-21">Thanh toán trực tuyến</span></a>
+                                    </li>
+                                </ul>
+                                <ul class="submenu" style="">
+                                    <li style="">
+                                        <a href="/phieu-thu-tong-hop.html"><span lang="menusinhvien-23">Phiếu thu tổng hợp</span></a>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title=""><i class="fa fa-cog" aria-hidden="true"></i><span lang="groupmenu-khac">KHÁC</span><span class="submenu-indicator"><i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+                                <ul class="submenu" style="">
+                                    <li style="">
+                                        <a href="/sinh-vien/lien-he-gop-y.html"><span lang="menusinhvien-28">Liên hệ góp ý</span></a>
+                                    </li>
+                                </ul>
+                                <ul class="submenu" style="">
+                                    <li style="">
+                                        <a href="/SinhVien/GetExtendMenu"><span lang="menusinhvien-0">Tin nội bộ sinh viên</span></a>
+                                    </li>
+                                </ul>
+                        </li>
+
+    <li>
+        <a href="javascript:void(0)" title=""><i class="fa fa-link" aria-hidden="true"></i>LIÊN KẾT<span class="submenu-indicator"><i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <ul class="submenu">
+            <li>
+                <a href="#" data-link="http://daotao.ut.edu.vn/?mid=43" onclick="openLienKet(this)" title="Chương trình đào tạo">
+                    Chương trình đào tạo
+                </a>
+            </li>
+            <li>
+                <a href="#" data-link="http://daotao.ut.edu.vn/?mid=48" onclick="openLienKet(this)" title="Giải đáp thắc mắc">
+                    Giải đáp thắc mắc
+                </a>
+            </li>
+            <li>
+                <a href="#" data-link="https://courses.ut.edu.vn" onclick="openLienKet(this)" title="Hệ thống đào tạo trực tuyến">
+                    Hệ thống đào tạo trực tuyến
+                </a>
+            </li>
+            <li>
+                <a href="#" data-link="http://support.ut.edu.vn/" onclick="openLienKet(this)" title="Hỗ trợ trực tuyến">
+                    Hỗ trợ trực tuyến
+                </a>
+            </li>
+            <li>
+                <a href="#" data-link="http://clc.ut.edu.vn" onclick="openLienKet(this)" title="Viện đào tạo chất lượng cao">
+                    Viện đào tạo chất lượng cao
+                </a>
+            </li>
+            <li>
+                <a href="#" data-link="https://ptc.ut.edu.vn" onclick="openLienKet(this)" title="Trung tâm đào tạo thường xuyên">
+                    Trung tâm đào tạo thường xuyên
+                </a>
+            </li>
+        </ul>
+    </li>
+
+<script type="text/javascript">
+    function openLienKet(e) {
+        window.open($(e).attr("data-link"), '_blank');
+    }
+</script>        </ul>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var uid = $("#UID").val();
+        if (uid === "21") {
+            $('#config-tool').attr('class', '');
+        }
+        if ("False" == "True") {
+            $('#config-tool').attr('class', '');
+        }
+    })
+</script>
+<script type="text/javascript" src="/Đăng ký học phần/scripts/lang/lang.js"></script>
+
+
+                <div class="changeColor">
+                    <ul class="theme-color">
+                        <li data-style="dashboard-default" class="color-default0 current"> </li>
+                        <li data-style="dashboard-primary-color" class="color-default"> </li>
+                        <li data-style="dashboard-two-color" class="color-default1"></li>
+                        <li data-style="dashboard-three-color" class="color-default2"></li>
+                        <li data-style="dashboard-four-color" class="color-default3"></li>
+                        <li data-style="dashboard-five-color" class="color-default4"></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script type="text/javascript" src="/Đăng ký học phần/Theme/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/Đăng ký học phần/Theme/js/jquery.nicescroll.min.js"></script>
+    <script src="/Content/ThemeMXH/js/tooltipster.bundle.min.js"></script>
+    <script type="text/javascript" src="/Content/ThemeMXH/js/main.js"></script>
+
+
+    
+
+    
+
+
+<div id="ascrail2000" class="nicescroll-rails nicescroll-rails-vr" style="width: 5px; z-index: auto; cursor: default; position: absolute; top: 198px; left: 1314.6px; height: 0px; touch-action: none; display: none;"><div class="nicescroll-cursors" style="position: relative; top: 0px; float: right; width: 5px; height: 0px; background-color: rgb(153, 153, 153); border: none; background-clip: padding-box; border-radius: 5px; touch-action: none;"></div></div><div id="ascrail2000-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 5px; z-index: auto; top: 193px; left: 199.6px; position: absolute; cursor: default; display: none;"><div class="nicescroll-cursors" style="position: absolute; top: 0px; height: 5px; width: 0px; background-color: rgb(153, 153, 153); border: none; background-clip: padding-box; border-radius: 5px;"></div></div><div id="ascrail2001" class="nicescroll-rails nicescroll-rails-vr" style="width: 5px; z-index: auto; cursor: default; position: absolute; top: 198px; left: 747.1px; height: 0px; touch-action: none; display: none;"><div class="nicescroll-cursors" style="position: relative; top: 0px; float: right; width: 5px; height: 0px; background-color: rgb(153, 153, 153); border: none; background-clip: padding-box; border-radius: 5px; touch-action: none;"></div></div><div id="ascrail2001-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 5px; z-index: auto; top: 193px; left: 199.6px; position: absolute; cursor: default; display: none;"><div class="nicescroll-cursors" style="position: absolute; top: 0px; height: 5px; width: 0px; background-color: rgb(153, 153, 153); border: none; background-clip: padding-box; border-radius: 5px;"></div></div><div id="ascrail2002" class="nicescroll-rails nicescroll-rails-vr" style="width: 5px; z-index: auto; cursor: default; position: absolute; top: 198px; left: 1314.6px; height: 0px; touch-action: none; display: none;"><div class="nicescroll-cursors" style="position: relative; top: 0px; float: right; width: 5px; height: 0px; background-color: rgb(153, 153, 153); border: none; background-clip: padding-box; border-radius: 5px; touch-action: none;"></div></div><div id="ascrail2002-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 5px; z-index: auto; top: 193px; left: 767.1px; position: absolute; cursor: default; display: none;"><div class="nicescroll-cursors" style="position: absolute; top: 0px; height: 5px; width: 0px; background-color: rgb(153, 153, 153); border: none; background-clip: padding-box; border-radius: 5px;"></div></div></body></html>

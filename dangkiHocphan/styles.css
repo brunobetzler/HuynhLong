@@ -1,0 +1,124 @@
+/* Reset mặc định */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif; /* Sử dụng font chữ hiện đại */
+    line-height: 1.6;
+    background-color: #f9f9f9; /* Màu nền nhạt */
+    color: #2c3e50; /* Màu chữ tối */
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px 30px;
+    background: #ffffff; /* Nền trắng sang trọng */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
+    border: 1px solid #eaeaea;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #2980b9; /* Xanh đậm */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+  }
+  
+  select, ul {
+    width: 100%;
+    margin: 15px 0;
+  }
+  
+  select {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #2c3e50;
+    transition: all 0.3s;
+  }
+  
+  select:hover, select:focus {
+    border-color: #3498db; /* Màu viền xanh khi focus */
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    background: #3498db; /* Xanh đậm */
+    color: #fff; /* Chữ trắng */
+    padding: 12px 20px;
+    margin: 8px 0;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+  }
+  
+  li:hover {
+    background: #2980b9; /* Xanh đậm hơn khi hover */
+    transform: scale(1.02); /* Phóng to nhẹ khi hover */
+  }
+  
+  li.disabled {
+    background: #e74c3c; /* Màu đỏ nhạt cho các lớp đầy chỗ */
+    cursor: not-allowed;
+  }
+  
+  li.disabled:hover {
+    transform: none; /* Không phóng to khi hover */
+  }
+  
+  .step {
+    margin-bottom: 20px;
+  }
+  
+  .step h2 {
+    margin-bottom: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2ecc71; /* Xanh lá */
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  button:hover {
+    background-color: #27ae60; /* Đậm hơn khi hover */
+    transform: scale(1.05);
+  }
+  
+  button:disabled {
+    background-color: #95a5a6; /* Xám nhạt */
+    cursor: not-allowed;
+  }
+  
+  footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #7f8c8d; /* Màu xám nhạt */
+  }
+  

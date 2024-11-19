@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán Học Phí</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Thanh Toán Học Phí</h1>
+        
+        <!-- Phương thức thanh toán -->
+        <form id="paymentForm">
+            <label for="paymentMethod">Chọn phương thức thanh toán:</label>
+            <select id="paymentMethod" name="paymentMethod" onchange="showPaymentOptions()">
+                <option value="" disabled selected>Chọn phương thức</option>
+                <option value="bank">Ngân hàng</option>
+                <option value="e-wallet">Ví điện tử</option>
+            </select>
+            
+            <!-- Thông tin thanh toán ngân hàng -->
+            <div id="bankInfo" class="payment-info" style="display: none;">
+                <h3>Thanh Toán qua Ngân Hàng</h3>
+                <label for="bankSelect">Chọn ngân hàng:</label>
+                <select id="bankSelect" name="bankSelect">
+                    <option value="vietcombank">Vietcombank</option>
+                    <option value="namba">Nam A Bank</option>
+                    <option value="techcombank">Techcombank</option>
+                    <option value="agribank">Agribank</option>
+                    <option value="sacombank">Sacombank</option>
+                </select>
+                <p>Số tiền cần thanh toán: 5.300.000 VNĐ</p>
+                <p id="bankInfoDetails"></p>
+            </div>
+
+            <!-- Thông tin thanh toán ví điện tử -->
+            <div id="eWalletInfo" class="payment-info" style="display: none;">
+                <h3>Thanh Toán qua Ví Điện Tử</h3>
+                <p>Ví điện tử: MoMo</p>
+                <p>Số tiền cần thanh toán: 5.300.000 VNĐ</p>
+            </div>
+            
+            <!-- Nút thanh toán -->
+            <button type="submit" id="paymentBtn" style="display: none;">Tiến hành thanh toán</button>
+        </form>
+    </div>
+
+    <script>
+        // Hiển thị thông tin thanh toán dựa trên phương thức được chọn
+        function showPaymentOptions() {
+            var paymentMethod = document.getElementById('paymentMethod').value;
+            var bankInfo = document.getElementById('bankInfo');
+            var eWalletInfo = document.getElementById('eWalletInfo');
+            var paymentBtn = document.getElementById('paymentBtn');
+
+            // Ẩn tất cả các lựa chọn trước
+            bankInfo.style.display = 'none';
+            eWalletInfo.style.display = 'none';
+            paymentBtn.style.display = 'none';
+
+            if (paymentMethod === 'bank') {
+                bankInfo.style.display = 'block';
+                paymentBtn.style.display = 'block';
+            } else if (paymentMethod === 'e-wallet') {
+                eWalletInfo.style.display = 'block';
+                paymentBtn.style.display = 'block';
+            }
+        }
+
+        // Cập nhật thông tin chi tiết về ngân hàng khi chọn ngân hàng
+        document.getElementById('bankSelect').addEventListener('change', function() {
+            var selectedBank = this.value;
+            var bankInfoDetails = document.getElementById('bankInfoDetails');
+
+            switch (selectedBank) {
+                case 'vietcombank':
+                    bankInfoDetails.textContent = 'Số tài khoản: 123-456-789, Ngân hàng Vietcombank';
+                    break;
+                case 'namba':
+                    bankInfoDetails.textContent = 'Số tài khoản: 987-654-321, Ngân hàng Nam A Bank';
+                    break;
+                case 'techcombank':
+                    bankInfoDetails.textContent = 'Số tài khoản: 555-111-222, Ngân hàng Techcombank';
+                    break;
+                case 'agribank':
+                    bankInfoDetails.textContent = 'Số tài khoản: 333-444-555, Ngân hàng Agribank';
+                    break;
+                case 'sacombank':
+                    bankInfoDetails.textContent = 'Số tài khoản: 666-777-888, Ngân hàng Sacombank';
+                    break;
+                default:
+                    bankInfoDetails.textContent = '';
+            }
+        });
+    </script>
+</body>
+</html>

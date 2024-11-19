@@ -1,0 +1,49 @@
+/* Định dạng container chính */
+.container {
+    width: 60%;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Tiêu đề */
+h1 {
+    text-align: center;
+    font-size: 32px;
+    color: #333;
+}
+
+/* Định dạng form */
+form {
+    margin-top: 20px;
+}
+
+/* Định dạng cho các thẻ select */
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+/* Định dạng cho các phần thông tin thanh toán */
+.payment-info {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+/* Định dạng cho nút thanh toán */
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
